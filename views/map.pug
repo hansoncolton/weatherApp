@@ -11,8 +11,8 @@ block content
     #map
     script.
         var myData = !{JSON.stringify(jsonData)};
-      //  var lat = !{JSON.stringify(currentLat)}
-      //  var long = !{JSON.stringify(currentLong)}
+        //  var lat = !{JSON.stringify(currentLat)}
+        //  var long = !{JSON.stringify(currentLong)}
 
         // Create variable to hold map element, give initial settings to map
         var map = L.map('map', {center: [51.505, -0.09], zoom: 15});
@@ -20,9 +20,10 @@ block content
             icon: 'fa fa-crosshairs'
         }).addTo(map);
         // Add OpenStreetMap tile layer to map element
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        	attribution: '© OpenStreetMap'
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '© OpenStreetMap'
         }).addTo(map);
+
         // Add JSON to map
         /*L.geoJson(myData,{
             onEachFeature: function (feature, layer) {
